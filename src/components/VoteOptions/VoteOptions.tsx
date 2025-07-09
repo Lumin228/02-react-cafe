@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import css from './VoteOptions.module.css'
-import type { VoteType } from '../../types/types';
+import type { VoteType } from '../../types/votes';
 
 
 interface Types{
