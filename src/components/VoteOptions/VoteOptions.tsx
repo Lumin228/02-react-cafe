@@ -1,14 +1,20 @@
+import clsx from 'clsx';
 import css from './VoteOptions.module.css'
 
+interface Types{
+    onVote: (key: 'good' | 'neutral' | 'bad') => void;
+    onReset: () => void;
+    canReset: boolean;
+}
 
-function VoteOptions() {
+function VoteOptions({onVote, onReset, canReset}: Types) {
 
     return (
         <div className={css.container}>
-            <button className={css.button}>Good</button>
-            <button className={css.button}>Neutral</button>
-            <button className={css.button}>Bad</button>
-            <button className={`${css.button} ${css.reset}`}>Reset</button>
+            <button className={css.button} onClick={() => onVote('good')}>Good</button>
+            <button className={css.button} onClick={() => onVote('neutral')}>Neutral</button>
+            <button className={css.button} onClick={() => onVote('bad')}>Bad</button>
+            <button className={clsx(!canReset && css.isHidden,`${css.button} ${css.reset}`)} onClick={onReset}>Reset</button>
         </div>
     )
 }

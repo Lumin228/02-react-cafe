@@ -27,6 +27,10 @@
   border-color: #dc3545;
 }
 
+.isHidden{
+  display: none;
+}
+
 .reset:hover {
   background-color: #bb2d3b;
   border-color: #b02a37;
