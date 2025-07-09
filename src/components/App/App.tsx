@@ -31,7 +31,7 @@ function App() {
       <div className={css.app}>
         <CafeInfo />
         <VoteOptions onVote={addVote} onReset={reset} canReset={posible}/>
-        {(votes.good > 0 || votes.bad > 0 || votes.neutral > 0) ? <VoteStats stats={votes}/> : <Notification />}
+        {posible ? <VoteStats onStats={votes}/> : <Notification />}
       </div>
     </>
   )

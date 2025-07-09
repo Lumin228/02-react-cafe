@@ -1,26 +1,28 @@
 import css from './VoteStats.module.css'
 
-interface Votes {
-    good: number,
-    neutral: number,
-    bad: number,
 
+interface Props {
+    onStats: {
+        good: number,
+        neutral: number,
+        bad: number,
+    }
 }
 
-function VoteStats({ stats: { good, neutral, bad } }: Votes) {
-    const totalVotes: number = good + neutral + bad;
-    const positiveRate: number = totalVotes ? Math.round((good / totalVotes) * 100) : 0;
-
+function VoteStats({ onStats }: Props) {
+    const totalVotes: number = onStats.good + onStats.neutral + onStats.bad;
+    const positiveRate: number = totalVotes ? Math.round((onStats.good / totalVotes) * 100) : 0;
 
     return (
         <div className={css.container}>
-            <p className={css.stat}>Good: <strong>{good}</strong></p>
-            <p className={css.stat}>Neutral: <strong>{neutral}</strong></p>
-            <p className={css.stat}>Bad: <strong>{bad}</strong></p>
+            <p className={css.stat}>Good: <strong>{onStats.good}</strong></p>
+            <p className={css.stat}>Neutral: <strong>{onStats.neutral}</strong></p>
+            <p className={css.stat}>Bad: <strong>{onStats.bad}</strong></p>
             <p className={css.stat}>Total: <strong>{totalVotes}</strong></p>
             <p className={css.stat}>Positive: <strong>{positiveRate}%</strong></p>
         </div>
-    )
+    );
 }
+
 
 export default VoteStats;
