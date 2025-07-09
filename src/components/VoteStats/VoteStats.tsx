@@ -1,12 +1,9 @@
 import css from './VoteStats.module.css'
+import type { Vote } from '../../types/types'
 
 
 interface Props {
-    onStats: {
-        good: number,
-        neutral: number,
-        bad: number,
-    }
+    onStats: Vote
 }
 
 function VoteStats({ onStats }: Props) {

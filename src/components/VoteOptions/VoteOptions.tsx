@@ -1,8 +1,10 @@
 import clsx from 'clsx';
 import css from './VoteOptions.module.css'
+import type { VoteType } from '../../types/types';
+
 
 interface Types{
-    onVote: (key: 'good' | 'neutral' | 'bad') => void;
+    onVote: (key: VoteType) => void;
     onReset: () => void;
     canReset: boolean;
 }
