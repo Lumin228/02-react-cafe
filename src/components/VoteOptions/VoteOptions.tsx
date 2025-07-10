@@ -3,13 +3,13 @@ import css from './VoteOptions.module.css'
 import type { VoteType } from '../../types/votes';
 
 
-interface Types{
+interface VoteOptionsProps{
     onVote: (key: VoteType) => void;
     onReset: () => void;
     canReset: boolean;
 }
 
-function VoteOptions({onVote, onReset, canReset}: Types) {
+function VoteOptions({onVote, onReset, canReset}: VoteOptionsProps) {
 
     return (
         <div className={css.container}>

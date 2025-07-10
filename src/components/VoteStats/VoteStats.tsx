@@ -1,20 +1,22 @@
 import css from './VoteStats.module.css'
-import type { Vote } from '../../types/votes'
+import type { Votes } from '../../types/votes'
 
 
-interface Props {
-    onStats: Vote
+interface VoteStatsProps {
+    votes: Votes,
+    totalVotes: number,
+    positiveRate: number
+    
 }
 
-function VoteStats({ onStats }: Props) {
-    const totalVotes: number = onStats.good + onStats.neutral + onStats.bad;
-    const positiveRate: number = totalVotes ? Math.round((onStats.good / totalVotes) * 100) : 0;
+function VoteStats({votes,  totalVotes, positiveRate}: VoteStatsProps) {
+
 
     return (
         <div className={css.container}>
-            <p className={css.stat}>Good: <strong>{onStats.good}</strong></p>
-            <p className={css.stat}>Neutral: <strong>{onStats.neutral}</strong></p>
-            <p className={css.stat}>Bad: <strong>{onStats.bad}</strong></p>
+            <p className={css.stat}>Good: <strong>{votes.good}</strong></p>
+            <p className={css.stat}>Neutral: <strong>{votes.neutral}</strong></p>
+            <p className={css.stat}>Bad: <strong>{votes.bad}</strong></p>
             <p className={css.stat}>Total: <strong>{totalVotes}</strong></p>
             <p className={css.stat}>Positive: <strong>{positiveRate}%</strong></p>
         </div>
